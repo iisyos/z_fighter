@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-zfighter-dev-172735-authRole",
+      "UnauthRoleArn": "arn:aws:iam::235087485205:role/amplify-zfighter-dev-172735-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::235087485205:role/amplify-zfighter-dev-172735-authRole",
+      "Region": "ap-northeast-1",
+      "DeploymentBucketName": "amplify-zfighter-dev-172735-deployment",
+      "UnauthRoleName": "amplify-zfighter-dev-172735-unauthRole",
+      "StackName": "amplify-zfighter-dev-172735",
+      "StackId": "arn:aws:cloudformation:ap-northeast-1:235087485205:stack/amplify-zfighter-dev-172735/650ddae0-4d2c-11ed-97d7-06bc66c92a33",
+      "AmplifyAppId": "d2j1arrvdssknw"
+    },
+    "categories": {
+      "hosting": {
+        "S3AndCloudFront": {}
+      }
+    }
+  }
+}
