@@ -9,6 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@aws-amplify/storage": "^4.5.10",
+    "aws-amplify": "^4.3.39",
     "vue": "^3.2.37"
   },
   "devDependencies": {

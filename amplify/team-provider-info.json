@@ -14,6 +14,12 @@
     "categories": {
       "hosting": {
         "S3AndCloudFront": {}
+      },
+      "auth": {
+        "zfighter68565872": {}
+      },
+      "storage": {
+        "s32e389cb7": {}
       }
     }
   }
