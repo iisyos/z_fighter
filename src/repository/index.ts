@@ -1,14 +1,11 @@
 import axios from "axios";
-type ZfighterSImilarity = {
-  predictions: string;
-  ok: boolean;
-  message: string;
-};
+import { ZfighterSImilarity } from "~/type";
 export const getZfighterSimilarity = async (
   url: string
 ): Promise<ZfighterSImilarity> => {
-  const response = (await axios.post("http://localhost:8081/v1/predict", {
+  const response = (await axios.post("https://v9unedcif5.execute-api.ap-northeast-3.amazonaws.com/main/v1/predict", {
     url,
-  })) as ZfighterSImilarity;
-  return response;
+  }));
+  console.log(response)
+  return response.data;
 };
