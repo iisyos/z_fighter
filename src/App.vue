@@ -1,12 +1,19 @@
 <script setup lang="ts">
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import HelloWorld from './components/HelloWorld.vue'
 import { ref, Ref } from "vue";
 import { Storage } from 'aws-amplify';
+import *  as repository from "./repository";
 
 const imageFile: Ref<null | File> = ref(null);
 const preview: Ref<null | HTMLImageElement> = ref(null)
+let uploadedImage = ref(false)
+let imageUrl = ref('')
+
+const onClickPredict = async () => {
+  console.log(imageUrl.value)
+  const modifiedUrl = imageUrl.value.split('?')[0]
+  const response = await repository.getZfighterSimilarity(modifiedUrl)
+  console.log(response)
+}
 
 const onCaptureImage = async (e: Event) => {
   if (e.target instanceof HTMLInputElement) {
@@ -23,6 +30,8 @@ const onCaptureImage = async (e: Event) => {
       const url = await Storage.get(filePath);
       if (preview.value instanceof HTMLImageElement) {
         preview.value.src = url
+        imageUrl.value = url
+        uploadedImage.value = true
       }
     }
   }
@@ -41,14 +50,6 @@ const getDirString = (date: Date) => {
     "-" + Math.floor(random).toString(16);
 }
 
-const getBase64 = async (file: File) => {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader()
-    reader.readAsDataURL(file)
-    reader.onload = () => resolve(reader.result)
-    reader.onerror = error => reject(error)
-  })
-}
 </script>
 
 <template>
@@ -58,7 +59,6 @@ const getBase64 = async (file: File) => {
       <input type="file" class="d-none" accept="image/*" capture="user" @change="onCaptureImage">
     </label>
   </div>
-  <img ref="preview" style="display:block;max-width:100%;">
-  <input >
+  <img ref="preview" style="display:block;max-width:100%;height:50vh;">
+  <button v-if="uploadedImage" @click="onClickPredict()">診断する</button>
 </template>
-
