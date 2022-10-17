@@ -10,5 +10,22 @@ export type AmplifyDependentResourcesAttributes = {
             "CloudFrontSecureURL": "string",
             "CloudFrontOriginAccessIdentity": "string"
         }
+    },
+    "auth": {
+        "zfighter68565872": {
+            "IdentityPoolId": "string",
+            "IdentityPoolName": "string",
+            "UserPoolId": "string",
+            "UserPoolArn": "string",
+            "UserPoolName": "string",
+            "AppClientIDWeb": "string",
+            "AppClientID": "string"
+        }
+    },
+    "storage": {
+        "s32e389cb7": {
+            "BucketName": "string",
+            "Region": "string"
+        }
     }
 }
